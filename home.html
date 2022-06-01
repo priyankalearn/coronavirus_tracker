@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>CORONA VIRUS TRACKER APPLICATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<h1>Coronavirus Tracker Application</h1>
+<p>This application lists the current number of cases reported across the US</p>
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalConfirmed}"></h1>
+    <p class="lead">Total Confirmed cases reported as of today</p>
+    <hr class="my-4">
+</div>
+
+<p th:text="${testName}"></p>
+
+<table class="table">
+    <tr>
+        <th>Province_State</th>
+        <th>Country_Region</th>
+        <th>Confirmed</th>
+    </tr>
+    <tr th:each="locationStat : ${locationStats}">
+        <td th:text="${locationStat.Province_State}"></td>
+        <td th:text="${locationStat.Country_Region}"></td>
+        <td th:text="${locationStat.Confirmed}">0</td>
+
+    </tr>
+</table>
+</div>
+ </body>
+
+</html>
